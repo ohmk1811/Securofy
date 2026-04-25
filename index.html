@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Securofy — VAPT & Cybersecurity Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0f2157;
+      --navy-dark: #080f2e;
+      --navy-mid: #162a6b;
+      --teal: #00cfb4;
+      --teal-dark: #009e8a;
+      --teal-faint: rgba(0,207,180,0.08);
+      --white: #ffffff;
+      --off: #f4f7fb;
+      --gray: #8898b0;
+      --text: #1e2d4a;
+      --card-bg: #ffffff;
+      --border: rgba(15,33,87,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(8,15,46,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,207,180,0.12);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 38px; height: 44px; flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo-text span { color: var(--teal); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 14px; font-weight: 400;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-cta {
+      background: var(--teal);
+      color: var(--navy-dark) !important;
+      font-weight: 500 !important;
+      padding: 9px 22px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy-dark);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.06;
+      background-image:
+        linear-gradient(rgba(0,207,180,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,207,180,0.5) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,207,180,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,207,180,0.1);
+      border: 1px solid rgba(0,207,180,0.3);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px; font-weight: 500;
+      color: var(--teal);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 4.5vw, 60px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.14;
+      letter-spacing: -0.4px;
+      max-width: 820px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .hero h1 .accent { color: var(--teal); }
+
+    .hero p {
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: rgba(255,255,255,0.6);
+      max-width: 580px;
+      line-height: 1.75;
+      margin-bottom: 44px;
+      position: relative;
+    }
+
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--navy-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 500;
+      padding: 14px 32px;
+      border: none; border-radius: 8px;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 400;
+      padding: 14px 32px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 8px;
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 56px; margin-top: 72px; position: relative;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 40px;
+    }
+
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 36px; font-weight: 700;
+      color: var(--teal);
+      display: block;
+    }
+    .hero-stat .lbl {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION SHARED ─── */
+    section { padding: 96px 5%; }
+
+    .section-label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .section-header { margin-bottom: 60px; }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-sub { margin: 0 auto; }
+
+    /* ─── ABOUT ─── */
+    .about { background: var(--off); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+      margin-top: 56px;
+    }
+
+    .about-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .about-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(15,33,87,0.1); }
+    .about-card:hover::before { transform: scaleX(1); }
+
+    .about-icon {
+      width: 48px; height: 48px;
+      background: var(--teal-faint);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .about-icon svg { width: 24px; height: 24px; fill: var(--teal); }
+
+    .about-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      font-size: 15px; color: var(--gray); line-height: 1.7;
+    }
+
+    /* ─── SERVICES ─── */
+    .services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 26px;
+      transition: background 0.2s, transform 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: var(--navy);
+      border-color: var(--navy);
+      transform: translateY(-3px);
+    }
+
+    .service-card:hover .svc-name,
+    .service-card:hover .svc-desc { color: var(--white); }
+    .service-card:hover .svc-icon { background: rgba(0,207,180,0.15); }
+    .service-card:hover .svc-tag { background: rgba(0,207,180,0.2); color: var(--teal); }
+
+    .svc-icon {
+      width: 42px; height: 42px;
+      background: rgba(0,207,180,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+      transition: background 0.2s;
+    }
+
+    .svc-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .svc-desc {
+      font-size: 13.5px; color: var(--gray); line-height: 1.6;
+      transition: color 0.2s;
+    }
+
+    .svc-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.8px;
+      background: rgba(15,33,87,0.07);
+      color: var(--navy);
+      padding: 4px 10px; border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* ─── METHODOLOGY ─── */
+    .methodology { background: var(--navy-dark); }
+    .methodology .section-title { color: var(--white); }
+    .methodology .section-sub { color: rgba(255,255,255,0.5); }
+    .methodology .section-label { color: var(--teal); }
+
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 60px;
+      position: relative;
+    }
+
+    .method-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 10%; right: 10%;
+      height: 1px;
+      background: rgba(0,207,180,0.25);
+      z-index: 0;
+    }
+
+    .method-step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 12px;
+      position: relative; z-index: 1;
+    }
+
+    .step-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid rgba(0,207,180,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 20px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .method-step:hover .step-num {
+      background: var(--teal);
+      color: var(--navy-dark);
+      border-color: var(--teal);
+    }
+
+    .step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6;
+    }
+
+    /* ─── DELIVERABLES ─── */
+    .deliverables { background: var(--off); }
+
+    .deliver-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .deliver-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 30px 28px;
+      display: flex; gap: 20px;
+      align-items: flex-start;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .deliver-card:hover { box-shadow: 0 12px 36px rgba(15,33,87,0.08); transform: translateY(-3px); }
+
+    .deliver-num {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--teal);
+    }
+
+    .deliver-content h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 600;
+      color: var(--navy); margin-bottom: 8px;
+    }
+
+    .deliver-content p { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    /* ─── WHY US ─── */
+    .why-us { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .why-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+
+    .why-stat-card {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .why-stat-card .big {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 46px; font-weight: 800;
+      color: var(--teal);
+      display: block; line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .why-stat-card .lbl {
+      font-size: 13px; color: rgba(255,255,255,0.55);
+    }
+
+    .why-list { margin-top: 36px; display: flex; flex-direction: column; gap: 18px; }
+
+    .why-item {
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+
+    .why-check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--teal-faint);
+      border: 1.5px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+
+    .why-check svg { width: 12px; height: 12px; stroke: var(--teal); fill: none; }
+
+    .why-item-text h5 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px; font-weight: 600;
+      color: var(--navy); margin-bottom: 4px;
+    }
+
+    .why-item-text p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── CONTACT ─── */
+    .contact { background: var(--navy-dark); }
+    .contact .section-title { color: var(--white); }
+    .contact .section-sub { color: rgba(255,255,255,0.5); }
+    .contact .section-label { color: var(--teal); }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: 60px;
+    }
+
+    .contact-info h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--white); margin-bottom: 20px;
+    }
+
+    .contact-detail {
+      display: flex; gap: 14px; align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .contact-detail-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 10px;
+      background: rgba(0,207,180,0.1);
+      border: 1px solid rgba(0,207,180,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .contact-detail-text p { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 2px; }
+    .contact-detail-text a,
+    .contact-detail-text span {
+      font-size: 15px; color: var(--white); font-weight: 400;
+      text-decoration: none;
+    }
+    .contact-detail-text a:hover { color: var(--teal); }
+
+    .contact-note {
+      margin-top: 36px;
+      padding: 20px;
+      border: 1px solid rgba(0,207,180,0.18);
+      border-radius: 10px;
+      background: rgba(0,207,180,0.04);
+    }
+
+    .contact-note p { font-size: 13.5px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .contact-note strong { color: var(--teal); }
+
+    /* ─── FORM ─── */
+    .contact-form {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 40px 36px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      background: rgba(0,207,180,0.05);
+    }
+
+    .form-group select option { background: var(--navy-dark); color: var(--white); }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--teal);
+      color: var(--navy-dark);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 600;
+      padding: 15px;
+      border: none; border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 6px;
+    }
+
+    .form-submit:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .form-success .check-circle {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba(0,207,180,0.15);
+      border: 2px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 28px;
+    }
+
+    .form-success h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px; color: var(--white); margin-bottom: 8px;
+    }
+
+    .form-success p { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .footer-logo svg { width: 26px; height: 30px; }
+
+    .footer-logo span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-logo span em { color: var(--teal); font-style: normal; }
+
+    footer p {
+      font-size: 13px; color: rgba(255,255,255,0.3);
+    }
+
+    /* ─── FADE IN ANIMATION ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .method-steps { grid-template-columns: repeat(3, 1fr); }
+      .method-steps::before { display: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 32px; flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      .method-steps { grid-template-columns: 1fr 1fr; }
+      .why-stats { grid-template-columns: 1fr 1fr; }
+      .contact-form { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 100 118" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 0 L100 18 L100 62 Q100 102 50 118 Q0 102 0 62 L0 18 Z" fill="#0f2157"/>
+      <path d="M50 0 L100 18 L100 32 L50 20 L0 32 L0 18 Z" fill="#00cfb4"/>
+      <rect x="27" y="64" width="46" height="32" rx="5" fill="#ffffff"/>
+      <path d="M35 64 L35 52 Q50 38 65 52 L65 64" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="50" cy="78" r="6.5" fill="#0f2157"/>
+      <rect x="46.5" y="78" width="7" height="10" rx="2" fill="#0f2157"/>
+      <circle cx="14" cy="56" r="3" fill="#00cfb4"/>
+      <circle cx="86" cy="56" r="3" fill="#00cfb4"/>
+    </svg>
+    <span class="nav-logo-text">Securo<span>fy</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-badge">Trusted Cybersecurity Partner</div>
+
+  <h1>Securing <span class="accent">Applications,</span><br>Infrastructure &amp; Digital Assets</h1>
+
+  <p>Your trusted partner in vulnerability assessment, penetration testing, and security consulting — protecting what matters most.</p>
+
+  <div class="hero-btns">
+    <a href="#services" class="btn-primary">Explore Services</a>
+    <a href="#contact" class="btn-outline">Request a VAPT</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">11+</span>
+      <div class="lbl">Service Offerings</div>
+    </div>
+    <div class="hero-stat">
+      <span class="num">5</span>
+      <div class="lbl">Methodology Phases</div>
+    </div>
+    <div class="hero-stat">
+      <span class="num">100%</span>
+      <div class="lbl">Actionable Reports</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="section-header">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Specialized in Security,<br>Driven by Results</h2>
+    <p class="section-sub">A specialized cybersecurity firm dedicated to helping organizations identify, assess, and remediate security vulnerabilities before adversaries can exploit them.</p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-card fade-in">
+      <div class="about-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/></svg>
+      </div>
+      <h3>Our Expertise</h3>
+      <p>Deep specialization in VAPT, risk assessment, penetration testing, and security auditing across diverse technology stacks.</p>
+    </div>
+    <div class="about-card fade-in">
+      <div class="about-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93V17a1 1 0 0 1-2 0v-.07A8 8 0 0 1 4.07 11H5a1 1 0 0 1 0 2 6 6 0 0 0 5 5.92zM12 6a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V7a1 1 0 0 1 1-1z"/></svg>
+      </div>
+      <h3>Our Mission</h3>
+      <p>Strengthening the security posture of organizations — from startups to enterprises — through actionable, risk-driven insights.</p>
+    </div>
+    <div class="about-card fade-in">
+      <div class="about-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg>
+      </div>
+      <h3>Our Commitment</h3>
+      <p>Industry-standard methodologies, certified professionals, and reports that drive real security improvements.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="services" id="services">
+  <div class="section-header centered">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">End-to-End Security Testing</h2>
+    <p class="section-sub">Comprehensive coverage across every layer of your digital environment — applications, APIs, infrastructure, and compliance.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="svc-icon">🌐</div>
+      <div class="svc-name">Web App VAPT</div>
+      <div class="svc-desc">OWASP Top 10, injection flaws, auth & business logic vulnerabilities.</div>
+      <span class="svc-tag">OWASP</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">🔌</div>
+      <div class="svc-name">API Security</div>
+      <div class="svc-desc">REST/SOAP testing, token security, data exposure and authorization risks.</div>
+      <span class="svc-tag">REST / SOAP</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">📱</div>
+      <div class="svc-name">Mobile VAPT</div>
+      <div class="svc-desc">Android & iOS SAST/DAST testing aligned with OWASP MASVS.</div>
+      <span class="svc-tag">Android / iOS</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">🖥️</div>
+      <div class="svc-name">Thick Client Testing</div>
+      <div class="svc-desc">Desktop app flaws, encryption weaknesses, and reverse engineering analysis.</div>
+      <span class="svc-tag">Desktop Apps</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">🏗️</div>
+      <div class="svc-name">Infrastructure VAPT</div>
+      <div class="svc-desc">Network scanning, server vulnerabilities, firewall and router configuration review.</div>
+      <span class="svc-tag">Network</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">📡</div>
+      <div class="svc-name">Wi-Fi Security Testing</div>
+      <div class="svc-desc">Wireless encryption, rogue AP detection, evil twin and MITM simulation.</div>
+      <span class="svc-tag">Wireless</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">⚙️</div>
+      <div class="svc-name">Configuration Reviews</div>
+      <div class="svc-desc">Firewall rules, DB hardening, and CIS benchmark validation.</div>
+      <span class="svc-tag">Hardening</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">🐳</div>
+      <div class="svc-name">Container Security</div>
+      <div class="svc-desc">Image scanning, secrets exposure detection, Kubernetes misconfiguration review.</div>
+      <span class="svc-tag">K8s / Docker</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">🔍</div>
+      <div class="svc-name">System Audits</div>
+      <div class="svc-desc">OS hardening, CSCRF gap analysis, patch and access control assessment.</div>
+      <span class="svc-tag">OS / Compliance</span>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon">📋</div>
+      <div class="svc-name">GRC Audit</div>
+      <div class="svc-desc">ISO 27001 / NIST alignment, risk register development, and compliance review.</div>
+      <span class="svc-tag">ISO 27001</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── METHODOLOGY ─── -->
+<section class="methodology" id="methodology">
+  <div class="section-header centered">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Our Testing Methodology</h2>
+    <p class="section-sub">Structured and repeatable — aligned with PTES, NIST SP 800-115, and OWASP standards.</p>
+  </div>
+
+  <div class="method-steps">
+    <div class="method-step fade-in">
+      <div class="step-num">01</div>
+      <div class="step-title">Reconnaissance</div>
+      <div class="step-desc">Gather intelligence, define scope &amp; threat model</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">02</div>
+      <div class="step-title">Assessment</div>
+      <div class="step-desc">Automated &amp; manual scanning of attack surface</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">03</div>
+      <div class="step-title">Exploitation</div>
+      <div class="step-desc">Controlled tests to validate real-world risk</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">04</div>
+      <div class="step-title">Risk Analysis</div>
+      <div class="step-desc">CVSS scoring, business impact classification</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">05</div>
+      <div class="step-title">Reporting</div>
+      <div class="step-desc">Actionable findings with PoC &amp; remediation plan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DELIVERABLES ─── -->
+<section class="deliverables" id="deliverables">
+  <div class="section-header centered">
+    <div class="section-label">What You Receive</div>
+    <h2 class="section-title">Comprehensive Deliverable Package</h2>
+    <p class="section-sub">Every engagement concludes with actionable outputs for both technical teams and executive stakeholders.</p>
+  </div>
+
+  <div class="deliver-grid">
+    <div class="deliver-card fade-in">
+      <div class="deliver-num">1</div>
+      <div class="deliver-content">
+        <h4>Detailed VAPT Report</h4>
+        <p>Full technical findings with evidence, screenshots &amp; step-by-step reproduction instructions for every vulnerability.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num">2</div>
+      <div class="deliver-content">
+        <h4>Executive Summary</h4>
+        <p>Non-technical overview of risk posture, key findings &amp; strategic recommendations suitable for C-suite review.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num">3</div>
+      <div class="deliver-content">
+        <h4>Risk Severity Classification</h4>
+        <p>Findings categorized as Critical, High, Medium &amp; Low using CVSS scoring and business impact context.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num">4</div>
+      <div class="deliver-content">
+        <h4>Proof of Concept (PoC)</h4>
+        <p>Demonstrable exploit examples for critical vulnerabilities — proving real-world impact &amp; helping prioritize remediation.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num">5</div>
+      <div class="deliver-content">
+        <h4>Remediation Guidance</h4>
+        <p>Specific, actionable fix recommendations mapped to each finding — including code-level guidance where applicable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="why-us" id="why-us">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Built for Real Security Outcomes</h2>
+      <p class="section-sub">We don't just find vulnerabilities — we help you fix them and measurably improve your security posture.</p>
+
+      <div class="why-list">
+        <div class="why-item fade-in">
+          <div class="why-check">
+            <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+          </div>
+          <div class="why-item-text">
+            <h5>End-to-End Security Testing</h5>
+            <p>From web apps to infrastructure to compliance — complete attack surface coverage.</p>
+          </div>
+        </div>
+        <div class="why-item fade-in">
+          <div class="why-check">
+            <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+          </div>
+          <div class="why-item-text">
+            <h5>Industry-Standard Methodologies</h5>
+            <p>Aligned with OWASP, NIST, PTES &amp; ISO 27001 — credible, repeatable, audit-ready results.</p>
+          </div>
+        </div>
+        <div class="why-item fade-in">
+          <div class="why-check">
+            <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+          </div>
+          <div class="why-item-text">
+            <h5>Strong Focus on Risk Reduction</h5>
+            <p>We help you fix vulnerabilities, prioritize effectively &amp; measurably improve your security posture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-stats">
+      <div class="why-stat-card fade-in">
+        <span class="big">11+</span>
+        <div class="lbl">Service Offerings</div>
+      </div>
+      <div class="why-stat-card fade-in">
+        <span class="big">5</span>
+        <div class="lbl">Methodology Phases</div>
+      </div>
+      <div class="why-stat-card fade-in" style="grid-column: span 2;">
+        <span class="big">100%</span>
+        <div class="lbl">Reports Include Remediation Guidance &amp; PoC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="contact" id="contact">
+  <div class="section-header centered">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Ready to Secure Your Systems?</h2>
+    <p class="section-sub">Fill out the form and our team will get back to you within 24 hours to discuss your security needs.</p>
+  </div>
+
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <h3>Contact Details</h3>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📧</div>
+        <div class="contact-detail-text">
+          <p>Email us at</p>
+          <a href="mailto:contact@securofy.co.in">contact@securofy.co.in</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <p>Call us at</p>
+          <a href="tel:+919819853368">+91 98198 53368</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🕐</div>
+        <div class="contact-detail-text">
+          <p>Response time</p>
+          <span>Within 24 hours</span>
+        </div>
+      </div>
+
+      <div class="contact-note">
+        <p><strong>Confidential &amp; NDA-ready.</strong> All inquiries are treated with strict confidentiality. We're happy to sign an NDA before any technical discussions begin.</p>
+      </div>
+    </div>
+
+    <div class="contact-form" id="contactForm">
+  <div class="form-row">
+    <div class="form-group">
+      <label>Full Name *</label>
+      <input type="text" id="fname" placeholder="Your name" />
+    </div>
+    <div class="form-group">
+      <label>Company / Organization</label>
+      <input type="text" id="fcompany" placeholder="Company name" />
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Email Address *</label>
+      <input type="email" id="femail" placeholder="you@company.com" />
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" id="fphone" placeholder="+91 XXXXX XXXXX" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Service Required</label>
+    <select id="fservice">
+      <option value="">Select a service...</option>
+      <option>Web App VAPT</option>
+      <option>API Security Testing</option>
+      <option>Mobile App VAPT</option>
+      <option>Infrastructure VAPT</option>
+      <option>Container Security</option>
+      <option>GRC / Compliance Audit</option>
+      <option>Configuration Review</option>
+      <option>Wi-Fi Security Testing</option>
+      <option>Other / Multiple Services</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Tell us about your requirements</label>
+    <textarea id="fmessage" placeholder="Describe your environment, scope, timeline, or any specific concerns..."></textarea>
+  </div>
+  <button class="form-submit" onclick="submitForm()">Send Message →</button>
+
+  <div class="form-success" id="formSuccess">
+    <div class="check-circle">✓</div>
+    <h4>Message Sent!</h4>
+    <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
+  </div>
+</div>
+
+<script>
+async function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const company = document.getElementById('fcompany').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const service = document.getElementById('fservice').value;
+  const message = document.getElementById('fmessage').value.trim();
+
+  if (!name || !email) {
+    alert('Please fill in your name and email.');
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: '70ac67bd-8ddc-4ecf-9252-355c77f7d3c5',
+        subject: `New VAPT Inquiry from ${name}`,
+        from_name: name,
+        email: email,
+        company: company || 'Not provided',
+        phone: phone || 'Not provided',
+        service: service || 'Not specified',
+        message: message || 'No message provided'
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      btn.style.display = 'none';
+      document.querySelectorAll('.form-group').forEach(g => g.style.display = 'none');
+      document.querySelectorAll('.form-row').forEach(r => r.style.display = 'none');
+      document.getElementById('formSuccess').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again.');
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    alert('Network error. Please try again.');
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+  }
+}
+</script>
+
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle">✓</div>
+        <h4>Message Sent!</h4>
+        <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">
+    <svg viewBox="0 0 100 118" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 0 L100 18 L100 62 Q100 102 50 118 Q0 102 0 62 L0 18 Z" fill="#0f2157"/>
+      <path d="M50 0 L100 18 L100 32 L50 20 L0 32 L0 18 Z" fill="#00cfb4"/>
+      <rect x="27" y="64" width="46" height="32" rx="5" fill="#ffffff"/>
+      <path d="M35 64 L35 52 Q50 38 65 52 L65 64" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="50" cy="78" r="6.5" fill="#0f2157"/>
+      <rect x="46.5" y="78" width="7" height="10" rx="2" fill="#0f2157"/>
+    </svg>
+    <span>Securo<em>fy</em></span>
+  </div>
+  <p>© 2025 Securofy. All rights reserved.</p>
+  <p style="font-size:12px; color:rgba(255,255,255,0.2);">VAPT · Compliance · Security Audit</p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submit via Web3Forms → contact@securofy.co.in
+  async function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const company = document.getElementById('fcompany').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    const service = document.getElementById('fservice').value;
+    const message = document.getElementById('fmessage').value.trim();
+
+    if (!name || !email) {
+      alert('Please fill in your name and email.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_KEY', // Replace with your Web3Forms key
+          subject: `New VAPT Inquiry from ${name}`,
+          from_name: 'Securofy Website',
+          to: 'contact@securofy.co.in',
+          name, email, company, phone,
+          service: service || 'Not specified',
+          message: message || 'No message provided'
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        btn.style.display = 'none';
+        document.querySelectorAll('.form-group').forEach(g => g.style.display = 'none');
+        document.querySelectorAll('.form-row').forEach(r => r.style.display = 'none');
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      // Fallback: open mailto
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nPhone: ${phone}\nService: ${service}\n\nMessage:\n${message}`
+      );
+      window.location.href = `mailto:contact@securofy.co.in?subject=New%20VAPT%20Inquiry%20from%20${encodeURIComponent(name)}&body=${body}`;
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>
