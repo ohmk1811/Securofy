@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
-<link rel="manifest" href="site.webmanifest">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Securofy - VAPT & Cybersecurity Services</title>
@@ -382,6 +375,30 @@
       transition: background 0.2s, color 0.2s;
     }
 
+    /* ─── SERVICES CATEGORY ─── */
+    .services-category-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      background: var(--teal-faint);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      display: inline-block;
+    }
+
+    .service-card--dev {
+      border: 1px solid rgba(0,207,180,0.2);
+      background: linear-gradient(135deg, var(--off) 0%, rgba(0,207,180,0.04) 100%);
+    }
+
+    .service-card--dev:hover {
+      background: var(--navy);
+      border-color: var(--teal);
+    }
+
     /* ─── METHODOLOGY ─── */
     .methodology { background: var(--navy-dark); }
     .methodology .section-title { color: var(--white); }
@@ -441,6 +458,18 @@
       font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6;
     }
 
+    .method-track-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 36px;
+      padding: 8px 16px;
+      border: 1px solid rgba(0,207,180,0.25);
+      border-radius: 6px;
+      display: inline-block;
+    }
+
     /* ─── DELIVERABLES ─── */
     .deliverables { background: var(--off); }
 
@@ -479,6 +508,19 @@
     }
 
     .deliver-content p { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    .deliver-track-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 24px;
+      padding: 10px 18px;
+      background: var(--teal-faint);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      display: inline-block;
+    }
 
     /* ─── WHY US ─── */
     .why-us { background: var(--white); }
@@ -764,29 +806,29 @@
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
 
-  <div class="hero-badge">Trusted Cybersecurity Partner</div>
+  <div class="hero-badge">Security · Development · AI Solutions</div>
 
-  <h1>Securing <span class="accent">Applications,</span><br>Infrastructure &amp; Digital Assets</h1>
+  <h1>Securing &amp; Building the <span class="accent">Digital Future</span></h1>
 
-  <p>Your trusted partner in vulnerability assessment, penetration testing, security consulting and protecting what matters most.</p>
+  <p>Your trusted partner for cybersecurity (VAPT), web development, and AI-powered solutions - from protecting your systems to building them from scratch.</p>
 
   <div class="hero-btns">
     <a href="#services" class="btn-primary">Explore Services</a>
-    <a href="#contact" class="btn-outline">Request a VAPT</a>
+    <a href="#contact" class="btn-outline">Get a Free Consultation</a>
   </div>
 
   <div class="hero-stats">
     <div class="hero-stat">
-      <span class="num">11+</span>
+      <span class="num">14+</span>
       <div class="lbl">Service Offerings</div>
     </div>
     <div class="hero-stat">
-      <span class="num">5</span>
-      <div class="lbl">Methodology Phases</div>
+      <span class="num">2</span>
+      <div class="lbl">Domains: Security & Dev</div>
     </div>
     <div class="hero-stat">
       <span class="num">100%</span>
-      <div class="lbl">Actionable Reports</div>
+      <div class="lbl">Actionable Delivery</div>
     </div>
   </div>
 </section>
@@ -795,8 +837,8 @@
 <section class="about" id="about">
   <div class="section-header">
     <div class="section-label">Who We Are</div>
-    <h2 class="section-title">Specialized in Security,<br>Driven by Results</h2>
-    <p class="section-sub">A specialized cybersecurity firm dedicated to helping organizations identify, assess and remediate security vulnerabilities before adversaries can exploit them.</p>
+    <h2 class="section-title">Security Experts.<br>Builders at Heart.</h2>
+    <p class="section-sub">A specialized firm delivering cybersecurity and digital development - from VAPT to websites, AI chatbots, and voice assistants.</p>
   </div>
 
   <div class="about-grid">
@@ -805,21 +847,21 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"/></svg>
       </div>
       <h3>Our Expertise</h3>
-      <p>Deep specialization in VAPT, risk assessment, penetration testing and security auditing across diverse technology stacks.</p>
+      <p>We operate across two domains - cybersecurity and digital development. From penetration testing and compliance audits to building production websites, AI chatbots, and voice assistants, we bring deep hands-on expertise to every project.</p>
     </div>
     <div class="about-card fade-in">
       <div class="about-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.93V17a1 1 0 0 1-2 0v-.07A8 8 0 0 1 4.07 11H5a1 1 0 0 1 0 2 6 6 0 0 0 5 5.92zM12 6a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V7a1 1 0 0 1 1-1z"/></svg>
       </div>
       <h3>Our Mission</h3>
-      <p>Strengthening the security posture of organizations - from startups to enterprises - through actionable, risk-driven insights.</p>
+      <p>To be a single trusted partner for businesses that need to both secure and build their digital presence - delivering measurable security outcomes and high-quality digital products, from startups to growing enterprises.</p>
     </div>
     <div class="about-card fade-in">
       <div class="about-icon">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 0 0 1.946-.806 3.42 3.42 0 0 1 4.438 0 3.42 3.42 0 0 0 1.946.806 3.42 3.42 0 0 1 3.138 3.138 3.42 3.42 0 0 0 .806 1.946 3.42 3.42 0 0 1 0 4.438 3.42 3.42 0 0 0-.806 1.946 3.42 3.42 0 0 1-3.138 3.138 3.42 3.42 0 0 0-1.946.806 3.42 3.42 0 0 1-4.438 0 3.42 3.42 0 0 0-1.946-.806 3.42 3.42 0 0 1-3.138-3.138 3.42 3.42 0 0 0-.806-1.946 3.42 3.42 0 0 1 0-4.438 3.42 3.42 0 0 0 .806-1.946 3.42 3.42 0 0 1 3.138-3.138z"/></svg>
       </div>
       <h3>Our Commitment</h3>
-      <p>Industry-standard methodologies, certified professionals, and reports that drive real security improvements.</p>
+      <p>Whether we're auditing your infrastructure or shipping your product - we commit to quality, transparency, and results that go beyond the brief. Every engagement ends with something you can actually use and act on.</p>
     </div>
   </div>
 </section>
@@ -828,10 +870,12 @@
 <section class="services" id="services">
   <div class="section-header centered">
     <div class="section-label">What We Do</div>
-    <h2 class="section-title">End-to-End Security Testing</h2>
-    <p class="section-sub">Comprehensive coverage across every layer of your digital environment - applications, APIs, infrastructure, and compliance.</p>
+    <h2 class="section-title">Security, Development & AI - All Under One Roof</h2>
+    <p class="section-sub">From penetration testing to building production-grade websites and AI-powered tools - complete digital solutions for modern businesses.</p>
   </div>
 
+  <!-- Cybersecurity Services -->
+  <div class="services-category-label">🔐 Cybersecurity Services</div>
   <div class="services-grid">
     <div class="service-card fade-in">
       <div class="svc-icon">🌐</div>
@@ -894,16 +938,41 @@
       <span class="svc-tag">ISO 27001</span>
     </div>
   </div>
+
+  <!-- Development & AI Services -->
+  <div class="services-category-label" style="margin-top: 56px;">💻 Development & AI Services</div>
+  <div class="services-grid">
+    <div class="service-card service-card--dev fade-in">
+      <div class="svc-icon">🖥️</div>
+      <div class="svc-name">Website Development</div>
+      <div class="svc-desc">Custom, responsive websites built for performance - from landing pages and portfolios to full business portals. Fast, clean, and ready to scale.</div>
+      <span class="svc-tag">Web Development</span>
+    </div>
+    <div class="service-card service-card--dev fade-in">
+      <div class="svc-icon">🤖</div>
+      <div class="svc-name">AI Chatbot Development</div>
+      <div class="svc-desc">Intelligent chatbots tailored to your business - for customer support, lead capture, FAQs, or internal automation. Seamlessly embedded into your product.</div>
+      <span class="svc-tag">AI Chatbot</span>
+    </div>
+    <div class="service-card service-card--dev fade-in">
+      <div class="svc-icon">🎙️</div>
+      <div class="svc-name">AI Voice Assistant</div>
+      <div class="svc-desc">Voice-powered assistants for business - handle calls, automate IVR, enable voice-driven workflows. Natural, accurate, and always available.</div>
+      <span class="svc-tag">Voice AI</span>
+    </div>
+  </div>
 </section>
 
 <!-- ─── METHODOLOGY ─── -->
 <section class="methodology" id="methodology">
   <div class="section-header centered">
     <div class="section-label">How We Work</div>
-    <h2 class="section-title">Our Testing Methodology</h2>
-    <p class="section-sub">Structured and repeatable - aligned with PTES, NIST SP 800-115, and OWASP standards.</p>
+    <h2 class="section-title">Our Engagement Process</h2>
+    <p class="section-sub">Whether it's a security audit or a product build - every engagement follows a structured, transparent process from kickoff to delivery.</p>
   </div>
 
+  <!-- Cybersecurity Track -->
+  <div class="method-track-label">🔐 Security Testing - How We Approach VAPT</div>
   <div class="method-steps">
     <div class="method-step fade-in">
       <div class="step-num">01</div>
@@ -931,50 +1000,122 @@
       <div class="step-desc">Actionable findings with PoC &amp; remediation plan</div>
     </div>
   </div>
+
+  <!-- Development Track -->
+  <div class="method-track-label" style="margin-top: 56px;">💻 Development & AI - How We Build</div>
+  <div class="method-steps">
+    <div class="method-step fade-in">
+      <div class="step-num">01</div>
+      <div class="step-title">Discovery</div>
+      <div class="step-desc">Understand goals, define scope, gather requirements</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">02</div>
+      <div class="step-title">Design</div>
+      <div class="step-desc">Wireframes, UI decisions, architecture planning</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">03</div>
+      <div class="step-title">Development</div>
+      <div class="step-desc">Iterative builds with regular client check-ins</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">04</div>
+      <div class="step-title">Testing & QA</div>
+      <div class="step-desc">Functionality, performance &amp; cross-device testing</div>
+    </div>
+    <div class="method-step fade-in">
+      <div class="step-num">05</div>
+      <div class="step-title">Deployment</div>
+      <div class="step-desc">Live launch, domain setup &amp; post-delivery support</div>
+    </div>
+  </div>
 </section>
 
 <!-- ─── DELIVERABLES ─── -->
 <section class="deliverables" id="deliverables">
   <div class="section-header centered">
     <div class="section-label">What You Receive</div>
-    <h2 class="section-title">Comprehensive Deliverable Package</h2>
-    <p class="section-sub">Every engagement concludes with actionable outputs for both technical teams and executive stakeholders.</p>
+    <h2 class="section-title">Every Engagement, Fully Delivered</h2>
+    <p class="section-sub">We don't just finish the work - we hand over everything you need to take action, go live, or make informed decisions.</p>
   </div>
 
+  <!-- Security Deliverables -->
+  <div class="deliver-track-label">🔐 Security Engagement Deliverables</div>
   <div class="deliver-grid">
     <div class="deliver-card fade-in">
       <div class="deliver-num">1</div>
       <div class="deliver-content">
         <h4>Detailed VAPT Report</h4>
-        <p>Full technical findings with evidence, screenshots &amp; step-by-step reproduction instructions for every vulnerability.</p>
+        <p>Full technical findings with evidence, screenshots &amp; step-by-step reproduction instructions for every vulnerability discovered.</p>
       </div>
     </div>
     <div class="deliver-card fade-in">
       <div class="deliver-num">2</div>
       <div class="deliver-content">
         <h4>Executive Summary</h4>
-        <p>Non-technical overview of risk posture, key findings &amp; strategic recommendations suitable for C-suite review.</p>
+        <p>Non-technical overview of risk posture, key findings &amp; strategic recommendations - suitable for management and C-suite review.</p>
       </div>
     </div>
     <div class="deliver-card fade-in">
       <div class="deliver-num">3</div>
       <div class="deliver-content">
         <h4>Risk Severity Classification</h4>
-        <p>Findings categorized as Critical, High, Medium &amp; Low using CVSS scoring and business impact context.</p>
+        <p>Findings rated Critical, High, Medium &amp; Low using CVSS scoring with business impact context to guide prioritization.</p>
       </div>
     </div>
     <div class="deliver-card fade-in">
       <div class="deliver-num">4</div>
       <div class="deliver-content">
         <h4>Proof of Concept (PoC)</h4>
-        <p>Demonstrable exploit examples for critical vulnerabilities - proving real-world impact &amp; helping prioritize remediation.</p>
+        <p>Demonstrable exploit examples for critical vulnerabilities - proving real-world impact and helping prioritize what to fix first.</p>
       </div>
     </div>
     <div class="deliver-card fade-in">
       <div class="deliver-num">5</div>
       <div class="deliver-content">
         <h4>Remediation Guidance</h4>
-        <p>Specific, actionable fix recommendations mapped to each finding - including code-level guidance where applicable.</p>
+        <p>Specific, actionable fix recommendations for each finding - including code-level guidance and re-testing support after patches.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Development Deliverables -->
+  <div class="deliver-track-label" style="margin-top: 56px;">💻 Development & AI Engagement Deliverables</div>
+  <div class="deliver-grid">
+    <div class="deliver-card fade-in">
+      <div class="deliver-num" style="background: var(--teal); color: var(--navy-dark);">1</div>
+      <div class="deliver-content">
+        <h4>Fully Built & Tested Product</h4>
+        <p>A complete, working website, chatbot, or voice assistant - thoroughly tested across devices and browsers before handover.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num" style="background: var(--teal); color: var(--navy-dark);">2</div>
+      <div class="deliver-content">
+        <h4>Source Code & Asset Handover</h4>
+        <p>Clean, well-structured source code with all assets - yours to own, host, or hand to any developer in the future.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num" style="background: var(--teal); color: var(--navy-dark);">3</div>
+      <div class="deliver-content">
+        <h4>Deployment & Go-Live</h4>
+        <p>We handle the full deployment - domain configuration, hosting setup, SSL, and getting your product live end-to-end.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num" style="background: var(--teal); color: var(--navy-dark);">4</div>
+      <div class="deliver-content">
+        <h4>Documentation & Walkthrough</h4>
+        <p>Written documentation and a recorded or live walkthrough so your team knows exactly how to manage and update the product.</p>
+      </div>
+    </div>
+    <div class="deliver-card fade-in">
+      <div class="deliver-num" style="background: var(--teal); color: var(--navy-dark);">5</div>
+      <div class="deliver-content">
+        <h4>Post-Launch Support</h4>
+        <p>A defined support window after delivery - bug fixes, minor changes, and guidance as you settle into your new product.</p>
       </div>
     </div>
   </div>
@@ -985,8 +1126,8 @@
   <div class="why-grid">
     <div>
       <div class="section-label">Why Choose Us</div>
-      <h2 class="section-title">Built for Real Security Outcomes</h2>
-      <p class="section-sub">We don't just find vulnerabilities - we help you fix them and measurably improve your security posture.</p>
+      <h2 class="section-title">One Partner for Security and Digital Growth</h2>
+      <p class="section-sub">Most agencies do one or the other. We do both - and we do it with the depth and discipline that serious businesses deserve.</p>
 
       <div class="why-list">
         <div class="why-item fade-in">
@@ -994,8 +1135,8 @@
             <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
           </div>
           <div class="why-item-text">
-            <h5>End-to-End Security Testing</h5>
-            <p>From web apps to infrastructure to compliance - complete attack surface coverage.</p>
+            <h5>Security + Development Under One Roof</h5>
+            <p>Get your product built and tested by the same team - no coordination gaps, no blame-shifting between vendors.</p>
           </div>
         </div>
         <div class="why-item fade-in">
@@ -1003,8 +1144,8 @@
             <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
           </div>
           <div class="why-item-text">
-            <h5>Industry-Standard Methodologies</h5>
-            <p>Aligned with OWASP, NIST, PTES &amp; ISO 27001 - credible, repeatable, audit-ready results.</p>
+            <h5>Structured Process, Transparent Delivery</h5>
+            <p>Every engagement - whether VAPT or a product build - follows a clear process with defined milestones and regular updates.</p>
           </div>
         </div>
         <div class="why-item fade-in">
@@ -1012,8 +1153,17 @@
             <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
           </div>
           <div class="why-item-text">
-            <h5>Strong Focus on Risk Reduction</h5>
-            <p>We help you fix vulnerabilities, prioritize effectively &amp; measurably improve your security posture.</p>
+            <h5>Built for Real Outcomes, Not Just Deliverables</h5>
+            <p>We don't just send reports or ship code. We ensure you can act on findings, go live confidently, and actually use what we build.</p>
+          </div>
+        </div>
+        <div class="why-item fade-in">
+          <div class="why-check">
+            <svg viewBox="0 0 12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg>
+          </div>
+          <div class="why-item-text">
+            <h5>Industry-Standard Security Methodology</h5>
+            <p>VAPT work aligned with OWASP, NIST, and PTES - credible, repeatable, and audit-ready for compliance requirements.</p>
           </div>
         </div>
       </div>
@@ -1021,16 +1171,20 @@
 
     <div class="why-stats">
       <div class="why-stat-card fade-in">
-        <span class="big">11+</span>
+        <span class="big">14+</span>
         <div class="lbl">Service Offerings</div>
       </div>
       <div class="why-stat-card fade-in">
-        <span class="big">5</span>
-        <div class="lbl">Methodology Phases</div>
+        <span class="big">2</span>
+        <div class="lbl">Domains: Security & Dev</div>
       </div>
-      <div class="why-stat-card fade-in" style="grid-column: span 2;">
+      <div class="why-stat-card fade-in">
         <span class="big">100%</span>
-        <div class="lbl">Reports Include Remediation Guidance &amp; PoC</div>
+        <div class="lbl">End-to-End Delivery</div>
+      </div>
+      <div class="why-stat-card fade-in">
+        <span class="big">24hr</span>
+        <div class="lbl">Response Guarantee</div>
       </div>
     </div>
   </div>
@@ -1040,8 +1194,8 @@
 <section class="contact" id="contact">
   <div class="section-header centered">
     <div class="section-label">Get In Touch</div>
-    <h2 class="section-title">Ready to Secure Your Systems?</h2>
-    <p class="section-sub">Fill out the form and our team will get back to you within 24 hours to discuss your security needs.</p>
+    <h2 class="section-title">Let's Build or Secure Something Together</h2>
+    <p class="section-sub">Fill out the form and our team will get back to you within 24 hours - whether it's a security audit, a website, or an AI solution.</p>
   </div>
 
   <div class="contact-wrap">
@@ -1102,14 +1256,21 @@
     <label>Service Required</label>
     <select id="fservice">
       <option value="">Select a service...</option>
-      <option>Web App VAPT</option>
-      <option>API Security Testing</option>
-      <option>Mobile App VAPT</option>
-      <option>Infrastructure VAPT</option>
-      <option>Container Security</option>
-      <option>GRC/Compliance Audit</option>
-      <option>Configuration Review</option>
-      <option>Wi-Fi Security Testing</option>
+      <optgroup label="🔐 Cybersecurity">
+        <option>Web App VAPT</option>
+        <option>API Security Testing</option>
+        <option>Mobile App VAPT</option>
+        <option>Infrastructure VAPT</option>
+        <option>Container Security</option>
+        <option>GRC/Compliance Audit</option>
+        <option>Configuration Review</option>
+        <option>Wi-Fi Security Testing</option>
+      </optgroup>
+      <optgroup label="💻 Development & AI">
+        <option>Website Development</option>
+        <option>AI Chatbot Development</option>
+        <option>AI Voice Assistant</option>
+      </optgroup>
       <option>Other/Multiple Services</option>
     </select>
   </div>
@@ -1209,7 +1370,7 @@ async function submitForm() {
     <span>Securo<em>fy</em></span>
   </div>
   <p>© 2026 Securofy. All rights reserved.</p>
-  <p style="font-size:12px; color:rgba(255,255,255,0.2);">VAPT · Compliance · Security Audit</p>
+  <p style="font-size:12px; color:rgba(255,255,255,0.2);">VAPT · Web Development · AI Solutions</p>
 </footer>
 
 <script>
